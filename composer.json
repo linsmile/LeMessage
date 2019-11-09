@@ -1,0 +1,23 @@
+{
+    "name": "lepush/lemessage",
+    "type": "library",
+    "description": "LeMessage API PHP Client",
+    "homepage": "https://github.com/linsmile/LeMessage",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LePush",
+            "email": "helloalex2020@gmail.com",
+            "homepage": "https://pushmember.lemajestic.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "ext-curl": "*",
+        "aws/aws-sdk-php": "*"
+    },
+    "autoload" : {
+        "psr-4": {"JMessage\\": "src/JMessage/"}
+    }
+}
