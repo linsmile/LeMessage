@@ -18,6 +18,6 @@
         "aws/aws-sdk-php": "*"
     },
     "autoload" : {
-        "psr-4": {"JMessage\\": "src/JMessage/"}
+        "psr-4": {"LeMessage\\": "src/LeMessage/"}
     }
 }
