@@ -40,4 +40,28 @@ class Chat extends IM
 
         return $this->post($uri, $query);
     }
+
+    public function kick($chat_id, $username)
+    {
+        $uri = self::API_DOMAIN . '/?ct=chat&ac=kick';
+
+        $query = [
+            'username' => $username,
+            'chat_id' => $chat_id
+        ];
+
+        return $this->post($uri, $query);
+    }
+
+    public function join($chat_id,  $username)
+    {
+        $uri = self::API_DOMAIN . '/?ct=chat&ac=join';
+
+        $query = [
+            'username' => $username,
+            'chat_id' => $chat_id
+        ];
+
+        return $this->post($uri, $query);
+    }
 }
