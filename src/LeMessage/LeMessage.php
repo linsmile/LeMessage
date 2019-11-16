@@ -11,6 +11,8 @@ class LeMessage {
         $this->appKey = $appKey;
         $this->masterSecret = $masterSecret;
         $this->options = $options;
+
+        $this->logFile = empty($options['logFile'])  ? '' : $options['logFile'];
     }
 
     public function getAuth() {
@@ -25,4 +27,5 @@ class LeMessage {
         return false;
     }
 
+    public function getLogFile() { return $this->logFile; }
 }

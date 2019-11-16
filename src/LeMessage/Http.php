@@ -112,11 +112,17 @@ class Http {
             $response['body'] = json_decode($body, true);
             if(empty($response['body']))
             {
-                echo $body;
+                self::log($client, "ERROR_RESPONSE_DATA::" . $body);
             }
             $response['http_code'] = $httpCode;
         }
         curl_close($ch);
         return $response['body'];
+    }
+
+    public static function log($client, $content) {
+        if (!empty($client->getLogFile())) {
+            error_log($content . "\r\n", 3, $client->getLogFile());
+        }
     }
 }

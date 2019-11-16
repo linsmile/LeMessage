@@ -6,8 +6,7 @@ class IM {
 
     private $client;
 
-    const API_DOMAIN = 'http://api.upush.aoidc.net';
-    //const API_DOMAIN = 'http://pushapi1.lemajestic.com';
+    const API_DOMAIN = 'https://pushapi.lemajestic.com';
 
     public function __construct($client) {
         $this->client = Http::getInstance($client);
