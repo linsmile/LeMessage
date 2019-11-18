@@ -4,11 +4,18 @@ use LeMessage\IM;
 
 class User extends IM {
 
-    public function register($data)
+    public function register($user)
     {
         $uri = self::API_DOMAIN . '/?ct=user&ac=reg';
 
-        return $this->post($uri, $data);
+        return $this->post($uri, $user);
+    }
+
+    public function batch_register(array $user_list)
+    {
+        $uri = self::API_DOMAIN . '/?ct=user&ac=batch_reg';
+
+        return $this->post($uri, $user_list);
     }
 
     public function show($username)
