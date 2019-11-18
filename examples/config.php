@@ -6,5 +6,7 @@ use LeMessage\LeMessage;
 
 $appKey = 'test';
 $masterSecret = 'test';
-
-$lm = new LeMessage($appKey, $masterSecret);
+$options  =   [
+    'logFile'  => '', //错误日志文件路径
+];
+$lm = new LeMessage($appKey, $masterSecret, $options);
