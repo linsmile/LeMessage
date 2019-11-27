@@ -4,9 +4,33 @@ use LeMessage\IM;
 
 class Friend extends IM {
 
-    public function add($username, array $friends)
+    public function add($username, $freind_username)
     {
         $uri = self::API_DOMAIN . '/friend/add';
+
+        $body = [
+            'username' => $username,
+            'freind_username'   => $freind_username
+        ];
+        $response = $this->post($uri, $body);
+        return $response;
+    }
+
+    public function delete($username, $freind_username)
+    {
+        $uri = self::API_DOMAIN . '/friend/delete';
+
+        $body = [
+            'freind_username' => $username,
+            'friends'   => $freind_username
+        ];
+        $response = $this->post($uri, $body);
+        return $response;
+    }
+
+    public function batch_add($username, array $friends)
+    {
+        $uri = self::API_DOMAIN . '/friend/batch_add';
 
         $body = [
             'username' => $username,
@@ -16,9 +40,9 @@ class Friend extends IM {
         return $response;
     }
 
-    public function delete($username, array $friends)
+    public function batch_delete($username, array $friends)
     {
-        $uri = self::API_DOMAIN . '/?ct=friend&ac=delete';
+        $uri = self::API_DOMAIN .  '/friend/batch_delete';
 
         $body = [
             'username' => $username,
