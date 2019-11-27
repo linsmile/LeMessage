@@ -10,7 +10,7 @@ class Friend extends IM {
 
         $body = [
             'username' => $username,
-            'freind_username'   => $freind_username
+            'friend_username'   => $freind_username
         ];
         $response = $this->post($uri, $body);
         return $response;
@@ -21,8 +21,8 @@ class Friend extends IM {
         $uri = self::API_DOMAIN . '/friend/delete';
 
         $body = [
-            'freind_username' => $username,
-            'friends'   => $freind_username
+            'username' => $username,
+            'friend_username'   => $freind_username
         ];
         $response = $this->post($uri, $body);
         return $response;
