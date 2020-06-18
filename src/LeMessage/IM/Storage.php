@@ -87,11 +87,11 @@ class Storage extends IM {
         $filehash = md5_file($file);
         if($uploadtype  == 'voice')
         {
-            $key = "sdk/voices/" . $filehash . '.' . $filetype;
+            $key = "voices/" . $filehash . '.' . $filetype;
         }
         else
         {
-            $key = "sdk/files/" . $filehash . '.' . $filetype;
+            $key = "files/" . $filehash . '.' . $filetype;
         }
 
         $filesize = filesize($file);

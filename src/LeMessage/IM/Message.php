@@ -18,18 +18,18 @@ class Message extends IM {
 
     /**
      * 发送文字消息
-     * @param $username     发送者用户标识
+     * @param $from_uid     发送者用户标识
      * @param $chat_id      会话ID
      * @param $text         发送文字
      * @param string $msg_id  消息ID 如果不为空，会修改该消息
      * @return mixed
      */
-    public function sendText($username, $chat_id, $text, $msg_id = '')
+    public function sendText($from_uid, $chat_id, $text, $msg_id = '')
     {
 
         $opts = [
             'msg_type' => self::MSG_TEXT,
-            'username' => $username,
+            '_from_uid' => $from_uid,
             'chat_id' => $chat_id,
             'content' => [
                 'text' => $text,
@@ -49,11 +49,11 @@ class Message extends IM {
      * @param string $msg_id  消息ID 如果不为空，表示修改消息
      * @return mixed
      */
-    public function sendImage($username, $chat_id, array $image, $text = '', $msg_id = '')
+    public function sendImage($from_uid, $chat_id, array $image, $text = '', $msg_id = '')
     {
         $opts = [
             'msg_type' => self::MSG_IMAGE,
-            'username' => $username,
+            '_from_uid' => $from_uid,
             'chat_id' => $chat_id,
             'content' => [
                 'image' => [
@@ -83,23 +83,23 @@ class Message extends IM {
         return $response;
     }
 
-    public function delete($username, $queue_id, array $msg_ids, $for_all)
+    public function delete($from_uid, $queue_id, array $msg_ids, $for_all)
     {
         $query  = [
             'msg_ids'  => implode(',', $msg_ids),
             'for_all'  => $for_all,
             'queue_id' => $queue_id,
-            'username' => $username,
+            '_from_uid' => $from_uid,
         ];
 
         $uri =  self::API_DOMAIN . '/message/delete';
         return $this->post($uri,  $query);
     }
 
-    public function pull($username, $chat_id, $seq_id = 0, $offset =  0, $pagesize = 15)
+    public function pull($from_uid, $chat_id, $seq_id = 0, $offset =  0, $pagesize = 15)
     {
         $query = [
-            'username' => $username,
+            '_from_uid' => $from_uid,
             'chat_id'  => $chat_id,
             'seq_id'   => $seq_id,
             'offset'   => $offset,
@@ -109,10 +109,10 @@ class Message extends IM {
         return $this->post($uri, $query);
     }
 
-    public function latest($username, $chat_id, $seq_id = 0, $offset =  0, $pagesize = 15)
+    public function latest($from_uid, $chat_id, $seq_id = 0, $offset =  0, $pagesize = 15)
     {
         $query = [
-            'username' => $username,
+            '_from_uid' => $from_uid,
             'chat_id'  => $chat_id,
             'seq_id'   => $seq_id,
             'offset'   => $offset,
