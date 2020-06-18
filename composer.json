@@ -2,7 +2,7 @@
     "name": "lepush/lemessage",
     "type": "library",
     "description": "LeMessage API PHP Client",
-    "homepage": "https://github.com/linsmile/LeMessage",
+    "homepage": "https://www.gitlab.center/openrepo/php-lemessage",
     "license": "MIT",
     "authors": [
         {
