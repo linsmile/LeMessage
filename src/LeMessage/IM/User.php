@@ -26,8 +26,8 @@ class User extends IM {
             }
         }
         $uri = self::API_DOMAIN . '/?ct=user&ac=batch_reg';
-
-        return $this->post($uri, $user_list);
+        $body = ['user_list' => $user_list];
+        return $this->post($uri, $body);
     }
 
     public function show($uid)
